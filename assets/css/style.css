@@ -1,0 +1,382 @@
+* {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	list-style: none;
+	color: white;
+}
+
+body {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	z-index: -1;
+	background-image: url(../images/bg-dirt-5.png);
+	background-size: cover;
+	overflow: hidden;
+	font-family: "Poppins";
+}
+
+body::before {
+	content: "";
+	position: absolute;
+	z-index: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(to right, #000000a2, #0000004a);
+}
+
+/*--HEADER--*/
+
+header {
+	position: relative;
+	height: 12vh;
+	width: 100%;
+	z-index: 10;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 135px;
+	box-sizing: border-box;
+	top: 0;
+	left: 0;
+}
+
+header .left a {
+	font-size: 2em;
+	font-weight: 100;
+	color: rgb(173, 173, 173);
+}
+
+header .left a.jeux {
+	margin-right: 70px;
+	font-weight: 500;
+	color: rgb(255, 255, 255);
+}
+
+header .right a,
+header .right span {
+	font-size: 1.8em;
+	color: #ffffff;
+}
+
+header .right {
+	display: flex;
+	align-items: center;
+}
+
+header .right a,
+header .right span {
+	margin-left: 60px;
+	font-weight: 100;
+}
+
+header .right i {
+	color: rgb(185, 185, 185);
+}
+
+header .right a.profil-pic {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+header .right a.profil-pic img {
+	height: 45px;
+	width: 45px;
+	border-radius: 50px;
+}
+
+header .right span.time {
+	margin-left: 100px;
+	letter-spacing: 2px;
+}
+
+/*--CAROUSEL GAME SELECTION--*/
+
+#carousel {
+	position: relative;
+	height: 88vh;
+	top: 0;
+	overflow: hidden;
+}
+
+#carousel > div {
+	top: 10px;
+	position: absolute;
+	transition: transform 0.3s ease 0s, left 0.3s ease 0s, opacity 0.3s ease 0s,
+		z-index 0s ease 0s;
+	opacity: 1;
+	width: 85%;
+}
+
+#carousel div .carousel-thumbnail img {
+	width: 170px;
+	transition: width 0.3s ease 0s;
+	border-radius: 25px;
+	cursor: pointer;
+}
+
+#carousel div .carousel-thumbnail span {
+	position: absolute;
+	top: 125px;
+	width: max-content;
+	font-size: 1.6em;
+	margin-left: 10px;
+	font-weight: 100;
+	color: rgb(223, 223, 223);
+}
+
+#carousel div.hideLeft {
+	left: -197px;
+}
+
+#carousel div.hideLeft img {
+	width: 110px;
+}
+
+#carousel div.hideRight {
+	left: 671px;
+	opacity: 0;
+}
+
+#carousel div.hideRight img {
+	width: 110px;
+}
+
+#carousel div.prev {
+	z-index: 5;
+	left: 69px;
+}
+
+#carousel div.prev img {
+	width: 110px;
+}
+
+#carousel div.prevLeftSecond {
+	z-index: 4;
+	left: -64px;
+}
+
+#carousel div.prevLeftSecond img {
+	width: 110px;
+}
+
+#carousel div.selected {
+	z-index: 0;
+	left: 206px;
+	height: 95%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+#carousel div:not(.selected) .game-info {
+	display: none;
+}
+
+#carousel div.selected .carousel-thumbnail img {
+	border: 3px solid rgba(255, 0, 0, 0);
+	box-shadow: 0px 0px 0px 3px rgba(228, 228, 228, 0.719);
+}
+
+#carousel div:not(.selected) .carousel-thumbnail span {
+	display: none;
+}
+
+#carousel div.next {
+	z-index: 5;
+	left: 405px;
+}
+
+#carousel div.next img {
+	width: 110px;
+}
+
+#carousel div.nextRightSecond {
+	z-index: 5;
+	left: 538px;
+	opacity: 1;
+}
+
+#carousel div.nextRightSecond img {
+	width: 110px;
+}
+
+#carousel .game-info {
+	margin-bottom: 70px;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+#carousel .game-info .left h1 {
+	font-weight: 100;
+	font-size: 1.5em;
+	color: rgb(246, 246, 246);
+	margin: 20px 0 50px 0;
+	max-width: 630px;
+}
+
+#carousel .game-info .left .cta-btn {
+	display: flex;
+}
+
+#carousel .game-info .left a {
+	font-size: 1.8em;
+	background-color: rgba(202, 202, 202, 0.109);
+	border-radius: 50px;
+}
+
+#carousel .game-info .left .play-btn {
+	padding: 12px 120px;
+}
+
+#carousel .game-info .left .point-btn {
+	width: 65px;
+	height: 65px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transform: rotate(-90deg);
+	margin-left: 20px;
+}
+
+#carousel .game-info.buy-it .left > a {
+	font-size: 1.2em;
+	padding: 5px 15px;
+	font-weight: 100;
+	border: 2px solid white;
+	background-color: transparent;
+	border-radius: 0px;
+}
+
+#carousel .game-info.buy-it .left h1 {
+	font-weight: 100;
+	font-size: 3em;
+	text-transform: uppercase;
+	margin: 20px 0px -5px;
+}
+
+#carousel .game-info.buy-it .left h2 {
+	font-weight: 100;
+	font-size: 1.6em;
+	text-transform: uppercase;
+}
+
+#carousel .game-info.buy-it .left span {
+	display: block;
+	margin: 40px 0 60px 0;
+	font-size: 1.3em;
+	color: #bbbbbb;
+}
+
+#carousel .game-info .right {
+	margin-right: 100px;
+}
+
+#carousel .game-info .right .big-pic {
+	height: 300px;
+	width: 300px;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
+#carousel .game-info .right .big-pic::before {
+	content: "";
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background: linear-gradient(to bottom, transparent 45%, #000 85%);
+}
+
+#carousel .game-info .big-pic span.jeu-complet {
+	border: 2px solid white;
+	padding: 3px 10px;
+	width: fit-content;
+	z-index: 1;
+	font-size: 0.9em;
+	margin-left: 18px;
+}
+
+#carousel .game-info .big-pic span.update {
+	background: white;
+	padding: 2px 6px;
+	width: fit-content;
+	z-index: 1;
+	font-size: 0.9em;
+	margin: 20px 0 20px 18px;
+	color: black;
+	font-weight: 600;
+}
+
+#carousel .game-info .big-pic span.price {
+	z-index: 1;
+	margin: 20px 0 20px 18px;
+	color: white;
+	font-weight: 400;
+	font-size: 1.2em;
+}
+
+#carousel .game-info .trophee {
+	margin-top: 20px;
+	width: 300px;
+	height: 100px;
+	background-color: rgba(0, 0, 0, 0.589);
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+#carousel .game-info .trophee i {
+	color: #acacac;
+	font-size: 2.4em;
+}
+
+#carousel .game-info .trophee .progress,
+#carousel .game-info .trophee .win {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#carousel .game-info .trophee .progress span:nth-child(1) {
+	color: #d4d4d4;
+	font-weight: 100;
+}
+
+#carousel .game-info .trophee .progress span:nth-child(2) {
+	color: #ffffff;
+	font-size: 1.7em;
+	font-weight: 100;
+}
+
+#carousel .game-info .trophee .win span:nth-child(1) {
+	color: #d4d4d4;
+	font-weight: 100;
+}
+
+#carousel .game-info .trophee .win span:nth-child(2) {
+	color: #ffffff;
+	font-size: 1.7em;
+	font-weight: 100;
+	text-align: right;
+}
+
+#carousel #dirt-5-game .game-info .big-pic {
+	background-image: url(../images/game-thumbnail-sackboy.png);
+	background-size: cover;
+}
+
+#carousel #yakuza-game .game-info .big-pic {
+	background-image: url(../images/hz4\ extension.jpeg);
+	background-size: cover;
+}
+
+#carousel #watch-dogs-game .game-info .big-pic {
+	background-image: url(../images/game-watch-dogs.png);
+	background-size: cover;
+}
